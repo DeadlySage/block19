@@ -1,8 +1,3 @@
-// === State ===
-// Here, we define variables for the data that our program needs to remember.
-// We call this data "state" because it represents the state of our program.
-// This is also where we define functions to modify the state.
-
 // Random names and occupations arrays
 const randNames = [
   "Liam",
@@ -65,9 +60,8 @@ const genFreelancer = (names, occupations) => {
   // return objTemp so it can be pushed into freelancers[]
   return objTemp;
 };
-// freelancers.push(genFreelancer(randNames, randOccupations));
 
-// get average starting price - shaniqua
+// shaniqua - get average starting price
 // const avgAmount = (objList) => {
 //   sum = 0;
 //   for (let i = 0; i < objList.length; i++) {
@@ -77,33 +71,26 @@ const genFreelancer = (names, occupations) => {
 //   return average;
 // };
 
-/* Renders each freelancer inside a given container*/
-// function addFreelancer(objList) {}
-
-//Tor
+// Tor - calculate the average starting price of all freelancers and update page
 function avgStartPri(freelancer) {
-  //Getting total starting price of all Freelancers
+  // Getting total starting price of all Freelancers
   let accStartPri = freelancer.reduce(
     (acc, currentValue) => acc + currentValue.startingPrice,
     0
   );
-  //Getting total freelancers by taking the index and adding one
 
+  // Getting total freelancers by taking the index and adding one
   let totalFreeLance = freelancer.length;
 
-  //let totalFreeLance = freelancer.reduce((acc, index) => acc + index, 1);
-
-  //Getting average starting price by dividing the total of all starting prices divided by the total amount of freelancers than rounding to nearest whole number
+  // Getting average starting price by dividing the total of all starting prices divided by the total amount of freelancers than rounding to nearest whole number
   let avgStartPri = Math.floor(accStartPri / totalFreeLance);
 
-  // update the average price every time function is called-adrian
+  // adrian - update the average price every time function is called
   const p = document.querySelector("#freelancer-average");
   p.textContent = `The average starting price is $${avgStartPri}`;
-
-  //return avgStartPri;
 }
 
-/*adrian & ryan- render the freelancers*/
+// adrian & ryan - render the freelancers
 const renderNewLine = (person) => {
   // creates a new line in the table
   const tr = document.createElement("tr");
@@ -126,7 +113,8 @@ const renderNewLine = (person) => {
   tr.appendChild(startingPrice);
 };
 
-// Ryan & Adrian
+// Ryan & Adrian - main function responsible with generating new freelancers, 
+// appending to html and updating the average price every time it runs
 const main = (objList) => {
   // run generator
   const newFreelancer = genFreelancer(randNames, randOccupations);
